@@ -26,7 +26,7 @@ class BoardShow extends Component
         $order = collect($items)->pluck('value')->toArray();
 
         Column::setNewOrder($order, 1, 'id', function(Builder $query) {
-            $query->whereBelongsTo('user', auth()->user());
+            $query->where('user_id', auth()->id());
         });
     }
 
@@ -60,7 +60,7 @@ class BoardShow extends Component
 
         $this->createColumnForm->reset();
 
-        $this->dispatch('colmun-created');
+        $this->dispatch('column-created');
     }
 
     #[Layout('layouts.app')]

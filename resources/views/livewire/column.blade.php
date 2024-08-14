@@ -1,12 +1,12 @@
 <div class="w-[260px] bg-gray-800 self-start max-h-full rounded-lg shadow-sm shrink-0 text-white flex flex-col">
     <div class="flex items-center justify-between">
-        <div x-data="{ editing: false }" x-on:click.outside="editing = false" class="flex items-center w-full h-8 min-w-0 pl-4 pr-0">
+        <div x-data="{ editing: false }" x-on:click.outside="editing = false" x-on:column-updated.window="editing = false" class="flex items-center w-full h-8 min-w-0 pl-4 pr-0">
             <button
-            x-on:click="editing = true" x-show="!editing"
+                x-on:click="editing = true" x-show="!editing"
                 class="w-full font-medium text-left">{{ $column->title }}</button>
             <template x-if="editing">
-                <form class="-ml-[calc(theme('margin[1.5]')+1px)] grow">
-                    <x-text-input type="text" class="h-8 px-1.5 w-full" wire:model="$column->title" />
+                <form wire:submit="updateColumn" class="-ml-[calc(theme('margin[1.5]')+1px)] grow">
+                    <x-text-input type="text" class="h-8 px-1.5 w-full" wire:model="$column->title" wire:model="editColumnForm.title" x-init="$el.focus()" />
                 </form>
             </template>
         </div>
