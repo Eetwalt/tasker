@@ -26,9 +26,14 @@
             </x-dropdown>
         </div>
     </div>
-    <div class="p-3 space-y-1.5 pt-0 overflow-y-scroll">
-        @foreach (range(1, random_int(5, 10)) as $card)
-            <livewire:card />
+    <div
+        class="p-3 space-y-1.5 pt-0 overflow-y-scroll"
+        wire:sortable-group.item-group="{{ $column->id }}"
+    >
+        @foreach ($cards as $card)
+            <div wire:key="{{ $card->id }}" wire:sortable-group.item="{{ $card->id }}">
+                <livewire:card :key='$card->id' :card='$card'/>
+            </div>
         @endforeach
     </div>
     <div class="p-3">create card</div>
