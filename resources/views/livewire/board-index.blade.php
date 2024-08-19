@@ -21,7 +21,6 @@
                     </svg>
             <span>
                 Create board
-
             </span>
         </button>
     </div>
