@@ -10,9 +10,9 @@ Route::get('/boards/{board}', BoardShow::class)
     ->middleware(['auth', 'verified'])
     ->name('boards.show');
 
-Route::get('dashboard', BoardIndex::class)
+Route::get('boards', BoardIndex::class)
     ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+    ->name('boards');
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])

@@ -24,8 +24,8 @@
     </x-slot>
 
     <div class="w-full p-6 overflow-x-scroll">
-        <div class="flex h-[calc(theme('height.screen')-64px-73px-theme('padding.12'))] space-x-6 w-max"
-            wire:sortable="sorted" wire:sortable-group="moved">
+        <div class="flex space-x-6 w-max"
+            wire:sortable="sorted" wire:sortable-group="moved" wire:sortable.options="{ ghostClass: 'opacity-20'}">
             @foreach ($columns as $column)
                 <div wire:key="{{ $column->id }}" wire:sortable.item="{{ $column->id }}">
                     <livewire:column :key='$column->id' :column='$column' />

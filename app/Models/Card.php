@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Traits\Archivable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\Sortable;
@@ -15,6 +16,11 @@ class Card extends Model implements Sortable
     use Archivable;
 
     protected $guarded = ['id'];
+
+    public function buildSortQuery(): Builder
+    {
+        return static::query()->where('column_id', $this->column_id);
+    }
 
     public $sortable = [
         'order_column_name' => 'order',
