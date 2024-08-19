@@ -13,16 +13,22 @@ class Column extends Component
     public EditColumn $editColumnForm;
     public CreateCard $createCardForm;
 
+    protected $listeners = [
+        'column-{column.id}-updated' => '$refresh',
+    ];
+
     public function mount()
     {
         $this->editColumnForm->title = $this->column->title;
     }
 
-    public function render()
+    public function archiveColumn()
     {
-        return view('livewire.column', [
-            'cards' => $this->column->cards()->ordered()->get(),
+        $this->column->update([
+            'archived_at' => now(),
         ]);
+
+        $this->dispatch('board-updated');
     }
 
     public function updateColumn()
@@ -46,5 +52,12 @@ class Column extends Component
         $this->createCardForm->reset();
 
         $this->dispatch('card-created');
+    }
+
+    public function render()
+    {
+        return view('livewire.column', [
+            'cards' => $this->column->cards()->ordered()->notArchived()->get(),
+        ]);
     }
 }

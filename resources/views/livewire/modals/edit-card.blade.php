@@ -11,7 +11,7 @@
             <x-input-error :messages="$errors->get('editCardForm.notes')" class="mt-1" />
         </div>
         <div class="flex items-center justify-end space-x-2">
-            <x-secondary-button>
+            <x-secondary-button wire:click="archiveCard">
                 Archive
             </x-secondary-button>
             <x-primary-button>
