@@ -1,6 +1,6 @@
 <div>
     <x-slot name="header">
-        <div class="flex items-center justify-between text-gray-800 dark:text-gray-200">
+        <div class="flex items-center justify-between text-white">
             <h2 class="text-xl font-semibold leading-tight ">
                 {{ $board->title }}
             </h2>
@@ -53,7 +53,7 @@
                     </form>
                 </template>
                 <button x-show="!adding" x-on:click="adding = true"
-                    class="flex items-center px-4 py-3 space-x-1 bg-gray-600 rounded-lg shadow-sm w-[260px] text-white">
+                    class="flex items-center px-4 py-3 space-x-1 text-secondary bg-base-500 hover:bg-base-300 rounded-lg shadow-sm w-[260px]">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />

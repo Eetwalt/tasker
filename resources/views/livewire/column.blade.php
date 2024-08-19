@@ -1,4 +1,4 @@
-<div class="w-[260px] bg-gray-800 self-start max-h-full rounded-lg shadow-sm shrink-0 text-white flex flex-col">
+<div class="w-[260px] bg-base-500 border-primary/50 border self-start max-h-full rounded-lg shadow-sm shrink-0 text-white flex flex-col">
     <div class="flex items-center justify-between">
         <div x-data="{ editing: false }" x-on:click.outside="editing = false" x-on:column-updated.window="editing = false"
             class="flex items-center w-full h-8 min-w-0 pl-4 pr-0">
@@ -46,11 +46,11 @@
                     <x-input-error :messages="$errors->get('createCardForm.title')" class="mt-1" />
                 </div>
 
-                <div class="flex items-center mt-2 space-x-2">
+                <div class="flex items-center mt-2 space-x-4">
                     <x-primary-button>
                         Create
                     </x-primary-button>
-                    <button x-on:click="adding = false" type="button" class="text-sm text-gray-200">Cancel</button>
+                    <button x-on:click="adding = false" type="button" class="text-sm text-secondary">Cancel</button>
                 </div>
             </form>
         </template>
