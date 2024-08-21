@@ -24,4 +24,9 @@ class BoardPolicy
     {
         return $user->id === $board->user_id;
     }
+
+    public function update(User $user, Board $board)
+    {
+        return $user->id === $board->user_id;
+    }
 }

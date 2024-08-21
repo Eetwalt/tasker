@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Tasker</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -17,8 +17,8 @@
 
 <body class="font-sans antialiased">
     <div class="text-white bg-base-900">
-        {{-- <img id="background" class="absolute -left-20 top-0 max-w-[877px]"
-            src="https://laravel.com/assets/img/welcome/background.svg" /> --}}
+        <img id="background" class="absolute -left-20 top-0 max-w-[877px]"
+            src="https://laravel.com/assets/img/welcome/background.svg" />
         <div
             class="relative flex flex-col items-center justify-center min-h-screen selection:bg-primary selection:text-white">
             <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">

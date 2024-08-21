@@ -1,7 +1,7 @@
 <div>
     <x-slot name="header">
         <div class="flex items-center justify-between text-white">
-            <h2 class="text-xl font-semibold leading-tight ">
+            <h2 class="text-xl font-semibold leading-tight">
                 {{ $board->title }}
             </h2>
             <x-dropdown>
@@ -15,6 +15,7 @@
                 </x-slot>
                 <x-slot name="content">
                     <div class="px-1 space-y-2">
+                        <x-dropdown-button x-on:click="Livewire.dispatch('openModal', { component: 'modals.edit-board', arguments: {board: {{ $board->id }} } })">Edit board name</x-dropdown-button>
                         <x-dropdown-button x-on:click="Livewire.dispatch('openModal', { component: 'modals.card-archive', arguments: {board: {{ $board->id }} } })">Archived cards</x-dropdown-button>
                         <x-dropdown-button x-on:click="Livewire.dispatch('openModal', { component: 'modals.column-archive', arguments: {board: {{ $board->id }} } })">Archived columns</x-dropdown-button>
                     </div>
@@ -24,6 +25,7 @@
     </x-slot>
 
     <div class="w-full p-6 overflow-x-scroll">
+    {{ $board->title }}
         <div class="flex space-x-6 w-max"
             wire:sortable="sorted" wire:sortable-group="moved" wire:sortable.options="{ ghostClass: 'opacity-20'}">
             @foreach ($columns as $column)
@@ -35,7 +37,7 @@
             <div x-data="{ adding: false }" x-on:column-created.window="adding = false">
                 <template x-if="adding">
                     <form wire:submit="createColumn"
-                        class="px-4 py-3 bg-gray-700 rounded-lg shadow-sm w-[260px] text-white">
+                        class="px-4 py-3 bg-base-500 rounded-lg shadow-sm w-[260px] text-white">
                         <div>
                             <x-input-label for="title" value="Title" class="sr-only" />
                             <x-text-input id="title" placeholder="Column title" class="w-full"

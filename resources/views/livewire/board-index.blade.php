@@ -1,11 +1,11 @@
 <x-slot name="header">
     <h2 class="text-xl font-semibold leading-tight text-white">
-        {{ __('Boards') }}
+        {{ __("All a' boards") }}
     </h2>
 </x-slot>
 
 <div class="py-6">
-    <div class="grid grid-cols-4 gap-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="grid grid-cols-6 gap-6 sm:px-6 lg:px-8">
         @foreach ($boards as $board)
             <a href="{{ route('boards.show', $board) }}"
                 class="flex items-end p-6 overflow-hidden text-lg text-white transition duration-300 border shadow-sm bg-base-700 border-primary/50 hover:bg-base-500 hover:border-primary hover:shadow-lg hover:-translate-y-1 sm:rounded-lg h-36">
