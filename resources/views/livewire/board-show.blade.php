@@ -25,7 +25,6 @@
     </x-slot>
 
     <div class="w-full p-6 overflow-x-scroll">
-    {{ $board->title }}
         <div class="flex space-x-6 w-max"
             wire:sortable="sorted" wire:sortable-group="moved" wire:sortable.options="{ ghostClass: 'opacity-20'}">
             @foreach ($columns as $column)

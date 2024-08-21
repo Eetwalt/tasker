@@ -23,20 +23,12 @@
 
         <!-- Page Heading -->
         @if (isset($header))
-            <header class="shadow bg-base-700" wire:id="page-header">
+            <header class="shadow bg-base-700">
                 <div class="px-4 py-6 sm:px-6 lg:px-8">
                     {{ $header }}
                 </div>
             </header>
         @endif
-
-        @listen('board-updated')
-        @push('scripts')
-            <script>
-                document.getElementById('page-header').classList.add('animate-pulse');
-                window.livewire.emit('refreshHeader');
-            </script>
-        @endpush
 
         <!-- Page Content -->
         <main>
